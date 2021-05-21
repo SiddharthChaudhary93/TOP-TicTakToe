@@ -53,13 +53,13 @@ function addSymbol(element){
 }
 
 createGrid();
-result.innerHTML = `Player 1's turn`;
+result.innerHTML = `Player X's turn`;
 
 function checkResult(){
     if(player1){
-        result.innerHTML = `Player 1's turn`;
+        result.innerHTML = `Player X's turn`;
     }else{
-        result.innerHTML = `Player 2's turn`;
+        result.innerHTML = `Player O's turn`;
     }
     
     xArray = [...gridElement]
@@ -84,14 +84,14 @@ function checkResult(){
 
     if(matchesOfX.length > 0){
         console.log(`Player 1 wins`);
-        result.textContent = `Player 1 wins`;
+        result.textContent = `Player X wins`;
         removeListener();
         resetButton();
         return;
     }
     if(matchesOfO.length > 0){
         console.log(`Player 2 wins`);
-        result.textContent = `Player 2 wins`;
+        result.textContent = `Player O wins`;
         removeListener();
         resetButton();
         return;
@@ -115,7 +115,7 @@ function resetTheGrid(){
     createGrid();
     xArray = [];
     oArray = [];
-    result.innerHTML = `Player 1's turn`;
+    result.innerHTML = `Player X's turn`;
     gridElement = document.querySelectorAll('.grid-element');
     gridElement.forEach(element => element.addEventListener('click',handleClick));
 }
@@ -136,7 +136,7 @@ function removeListener(){
 
 function splitArrayIntoChunks(set, k) {
     var i, j, combs, head, tailcombs;
-		if (k > set.length || k <= 0) {
+	if (k > set.length || k <= 0) {
 		return [];
 	}
 	if (k == set.length) {
